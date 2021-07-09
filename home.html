@@ -6,141 +6,270 @@
     <meta charset="utf-8">
     <script type="text/javascript" src="./js/data.js"></script>
     <script type='text/javascript' src='./js/analysis.js'></script>
+    <style>
+        @font-face {
+            src : url("./fonts/GamjaFlower-Regular.ttf"); 
+            font-family: "Gamja Flower"; 
+        }
+
+        * {
+            font-family: "Gamja Flower";
+        }
+
+        h1 {
+            font-size: 60px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 25px;
+            text-align: center;
+            color:DarkBlue;
+        }
+        .inputValueSlider{
+            height: 30px;
+            float: right;
+            cursor: pointer;
+        }
+        .inputOption{
+            color:MidnightBlue;
+            font-size: 28px;
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin: 7px;
+            border-radius: 22px;
+            background-color: Bisque;
+        }
+        .block{
+            border-width: 0px;
+            border-color: CornflowerBlue;
+            border-style: solid;
+            border-radius: 10px;
+            padding:20px;
+            width:500px;
+        }
+        #notion{
+            font-size: 20px;
+            color: Crimson;
+            float: left;
+            margin-top: 14px;
+            margin-left: 210px;
+        }
+        .result{
+            font-size: 23px;
+            padding: 5px;
+        }
+        #resultBox{
+            padding: 20px;
+            margin: 7px;
+            border-radius: 14px;
+            background-color: PaleTurquoise;
+        }
+        .inputButton{
+            float: right;
+            cursor: pointer;
+        }
+        .soloButton{
+            background-color: white;
+            padding: 15px 20px;
+            margin-top: 30px;
+            font-size: 30px;
+            border-color: CadetBlue;
+            border-radius: 20px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .inputButton{
+            background-color: white;
+            padding: 10px 12px;
+            font-size: 16px;
+            border-color: BurlyWood;
+            border-radius: 20px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #outerGrid{
+            display: grid;
+            grid-template-columns: 1fr 544px 1fr;
+        }
+        #innerGrid1{
+            display: grid;
+            grid-template-columns: 1fr 320px 1fr;
+        }
+        #innerGrid2{
+            display: grid;
+            grid-template-columns: 1fr 260px 1fr;
+        }
+
+    </style>
 </head>
 
-<body>
-    <h1>메뉴 선정</h1>
+<body style="background-color: LemonChiffon;">
+    <h1 id='title' style='display:block'>오늘 뭐 먹지?</h1>
 
-    <!-- ======================== 국적 ======================== -->
-    <div id="blockNation" style="display: block;";>
-        <h3>각 종류의 음식을 먹고 싶은 정도를 0~100의 정수로 입력해주세요</h3>
-        <script>
-            var optionNation = ['한식','중식','양식','일식','분식','야식','편의점식'];
-            printInputBox(optionNation, cntNation)
-        </script><br>
-        <input type='button' value='입력 완료' onclick="
-            checkInputBox(listNation, cntNation, '#blockNation', '#blockMI')">
-        <script>printNotion1()</script>
+    <div id="outerGrid">
+        <div></div>
+
+        <div>
+            <div id="blockStart" style="display: block; text-align: center;";>
+                <input type='button' value='시작하기' class="soloButton" onclick="
+                document.querySelector('#title').style.display = 'none';
+                    document.querySelector('#blockStart').style.display = 'none';
+                    document.querySelector('#blockNation').style.display = 'block';">
+            </div>
+
+            <div id="blockNation" class="block" style="display: none;";>
+                <h2>각 종류의 음식을 먹고 싶은 정도를  입력해주세요.</h2>
+                <script>
+                    var optionNation = ['한식','중식','양식','일식','분식','야식','편의점식'];
+                    printInputBox(optionNation, cntNation)
+                </script><br>
+                <input type='button' class='inputButton' value='입력 완료' onclick="
+                    checkSlider(listNation, cntNation, '#blockNation', '#blockMI')">
+                <br>
+            </div>
+
+            <div id="blockMI" class="block" style="display: none;";>
+                <h2>각 주재료를 먹고 싶은 정도를 입력해주세요.</h2>
+                <script>
+                    var optionMI = ['밥','빵','면','떡','소고기','돼지고기','닭고기','해산물','야채'];
+                    printInputBox(optionMI, cntMI)
+                </script><br>
+                <input type='button' class='inputButton' value='입력 완료' onclick="
+                    checkSlider(listMI, cntMI, '#blockMI', '#blockCM')">
+                <br>
+            </div>
+            
+            <div id="blockCM" class="block" style="display: none;";>
+                <h2>각 조리 방법의 음식을 먹고 싶은 정도를 입력해주세요.</h2>
+                <script>
+                    var optionCM = ['구이','볶음','찜or탕or국','비조리','튀김','부침'];
+                    printInputBox(optionCM, cntCM)
+                </script><br>
+                <input type='button' class='inputButton' value='입력 완료' onclick="
+                    checkSlider(listCM, cntCM, '#blockCM', '#blockSpicy')">
+                <br>
+            </div>
+
+            <div id="blockSpicy" class="block" style="display: none;";>
+                <h2>원하는 매운 정도를 선택해주세요. (중복 선택 가능)</h2>
+                <script>
+                    var optionSpicy = ['매움','약간 매움','안 매움'];
+                    printCheckBox(optionSpicy, cntSpicy)
+                </script><br>
+                <script>printNotion2()</script>
+                <input type='button' style="display: block;" class='inputButton' value='입력 완료' onclick="
+                    checkCheckBox(listSpicy, cntSpicy, '#blockSpicy', '#blockFull')">
+                <br>
+            </div>
+
+            <div id="blockFull" class="block" style="display: none;";>
+                <h2>원하는 배부른 정도를 선택해주세요. (중복 선택 가능)</h2>
+                <script>
+                    var optionFull = ['든든함','보통','간단함'];
+                    printCheckBox(optionFull, cntFull)
+                </script><br>
+                <script>printNotion2()</script>
+                <input type='button' class='inputButton' value='입력 완료' onclick="
+                    checkCheckBox(listFull, cntFull, '#blockFull', '#blockPrice')">
+                <br>
+            </div>
+
+            <div id="blockPrice" class="block" style="display: none;";>
+                <h2>원하는 가격대를 선택해주세요. (중복 선택 가능)</h2>
+                <script>
+                    var optionPrice = ['저렴함','보통','비쌈'];
+                    printCheckBox(optionPrice, cntPrice)
+                </script><br>
+                <script>printNotion2()</script>
+                <input type='button' class='inputButton' value='입력 완료' onclick="
+                    checkCheckBox(listPrice, cntPrice, '#blockPrice', '#blockTemp')">
+                <br>
+            </div>
+
+            <div id="blockTemp" class="block" style="display: none;";>
+                <h2>원하는 음식의 온도를 선택해주세요. (중복 선택 가능)</h2>
+                <script>
+                    var optionTemp = ['따뜻함','보통','차가움'];
+                    printCheckBox(optionTemp, cntTemp)
+                </script><br>
+                <script>printNotion2()</script>
+                <input type='button' class='inputButton' value='입력 완료' onclick="
+                    checkCheckBox(listTemp, cntTemp, '#blockTemp', '#blockOily')">
+                <br>
+            </div>
+
+            <div id="blockOily" class="block" style="display: none;";>
+                <h2>원하는 담백한 정도를 선택해주세요. (중복 선택 가능)</h2>
+                <script>
+                    var optionOily = ['느끼함','담백함'];
+                    printCheckBox(optionOily, cntOily)
+                </script><br>
+                <script>printNotion2()</script>
+                <input type='button' class='inputButton' value='입력 완료' onclick="
+                    checkCheckBox(listOily, cntOily, '#blockOily', '#blockSweet')">
+                <br>
+            </div>
+
+            <div id="blockSweet" class="block" style="display: none;";>
+                <h2>원하는 달달한 정도를 선택해주세요. (중복 선택 가능)</h2>
+                <script>
+                    var optionSweet = ['달달함','약간 달달함','안 달달함'];
+                    printCheckBox(optionSweet, cntSweet)
+                </script><br>
+                <script>printNotion2()</script>
+                <input type='button' class='inputButton' value='입력 완료' onclick="
+                    checkCheckBox(listSweet, cntSweet, '#blockSweet', '#blockSalty')">
+                <br>
+            </div>
+
+            <div id="blockSalty" class="block" style="display: none;";>
+                <h2>원하는 짭짤한 정도를 선택해주세요. (중복 선택 가능)</h2>
+                <script>
+                    var optionSalty = ['짭짤함','약간 짭짤함','안 짭짤함'];
+                    printCheckBox(optionSalty, cntSalty)
+                </script><br>
+                <script>printNotion2()</script>
+                <input type='button' class='inputButton' value='입력 완료' onclick="
+                    checkCheckBox(listSalty, cntSalty, '#blockSalty', '#blockPreResult')">
+                <br>
+            </div>
+
+            <div id="blockPreResult" style="display: none; text-align: center;";>
+                <input type='button' value='결과 보기' class="soloButton" onclick="
+                    analysisResult();
+                    resetResult();
+                    this.style.display = 'none';
+                    document.querySelector('#title').style.display = 'none';
+                    document.querySelector('#blockResult').style.display = 'block';
+                ">
+            </div>
+            
+            <div id="blockResult" style="display: none;">
+                <script>
+                    document.write("<h1>메뉴 선정 결과!</h1>");
+                    document.write("<h2>당신이 각 음식을 먹고 싶을 확률<br></h2>");
+                    
+                    document.write("<div id='innerGrid2'>");
+                    document.write("<div></div> <div id='resultBox'>");
+
+                    for (var i = 0; i < 10; i++) {
+                        document.write("<div class='result'>");
+                        document.write("<span class='resultName'>" + '이름' + "</span> : ");
+                        document.write("<span class='resultScore'>" + 0 + "</span>");
+                        document.write("%</div>");
+                    }
+                    document.write("</div> <div></div>");
+                    document.write("</div>");
+                </script>
+            </div>
+
+        </div>
+
+        <div></div>
     </div>
 
-    <!-- ======================== 주재료 ======================== -->
-    <div id="blockMI" style="display: none;";>
-        <h3>각 주재료를 먹고 싶은 정도를 0~100의 정수로 입력해주세요</h3>
-        <script>
-            var optionMI = ['밥','빵','면','떡','소고기','돼지고기','닭고기','해산물','야채'];
-            printInputBox(optionMI, cntMI)
-        </script><br>
-        <input type='button' value='입력 완료' onclick="
-            checkInputBox(listMI, cntMI, '#blockMI', '#blockCM')">
-        <script>printNotion1()</script>
-    </div>
-    
-    <!-- ======================== 조리 방법 ======================== -->
-    <div id="blockCM" style="display: none;";>
-        <h3>각 조리 방법의 음식을 먹고 싶은 정도를 0~100의 정수로 입력해주세요</h3>
-        <script>
-            var optionCM = ['구이','볶음','찜or탕or국','비조리','튀김','부침'];
-            printInputBox(optionCM, cntCM)
-        </script><br>
-        <input type='button' value='입력 완료' onclick="
-            checkInputBox(listCM, cntCM, '#blockCM', '#blockSpicy')">
-        <script>printNotion1()</script>
-    </div>
-
-    <!-- ======================== 매운 정도 ======================== -->
-    <div id="blockSpicy" style="display: none;";>
-        <h3>먹고 싶은 매운 정도의 음식을 선택하세요 (중복 선택 가능)</h3>
-        <script>
-            var optionSpicy = ['매움','약간 매움','안 매움'];
-            printCheckBox(optionSpicy, cntSpicy)
-        </script><br>
-        <input type='button' value='입력 완료' onclick="
-            checkCheckBox(listSpicy, cntSpicy, '#blockSpicy', '#blockFull')">
-        <script>printNotion2()</script>
-    </div>
-
-    <!-- ======================== 배부른 정도 ======================== -->
-    <div id="blockFull" style="display: none;";>
-        <h3>먹고 싶은 배부른 정도의 음식을 선택하세요 (중복 선택 가능)</h3>
-        <script>
-            var optionFull = ['든든함','보통','간단함'];
-            printCheckBox(optionFull, cntFull)
-        </script><br>
-        <input type='button' value='입력 완료' onclick="
-            checkCheckBox(listFull, cntFull, '#blockFull', '#blockPrice')">
-        <script>printNotion2()</script>
-    </div>
-
-    <!-- ======================== 가격대 ======================== -->
-    <div id="blockPrice" style="display: none;";>
-        <h3>먹고 싶은 가격대의 음식을 선택하세요 (중복 선택 가능)</h3>
-        <script>
-            var optionPrice = ['저렴함','보통','비쌈'];
-            printCheckBox(optionPrice, cntPrice)
-        </script><br>
-        <input type='button' value='입력 완료' onclick="
-            checkCheckBox(listPrice, cntPrice, '#blockPrice', '#blockTemp')">
-        <script>printNotion2()</script>
-    </div>
-
-    <!-- ======================== 온도 ======================== -->
-    <div id="blockTemp" style="display: none;";>
-        <h3>먹고 싶은 온도의 음식을 선택하세요 (중복 선택 가능)</h3>
-        <script>
-            var optionTemp = ['따뜻함','보통','차가움'];
-            printCheckBox(optionTemp, cntTemp)
-        </script><br>
-        <input type='button' value='입력 완료' onclick="
-            checkCheckBox(listTemp, cntTemp, '#blockTemp', '#blockOily')">
-        <script>printNotion2()</script>
-    </div>
-
-    <!-- ======================== 느끼함 ======================== -->
-    <div id="blockOily" style="display: none;";>
-        <h3>먹고 싶은 담백한 정도를 선택하세요 (중복 선택 가능)</h3>
-        <script>
-            var optionOily = ['느끼함','담백함'];
-            printCheckBox(optionOily, cntOily)
-        </script><br>
-        <input type='button' value='입력 완료' onclick="
-            checkCheckBox(listOily, cntOily, '#blockOily', '#blockSweet')">
-        <script>printNotion2()</script>
-    </div>
-
-    <!-- ======================== 달달함 ======================== -->
-    <div id="blockSweet" style="display: none;";>
-        <h3>먹고 싶은 달달한 정도를 선택하세요 (중복 선택 가능)</h3>
-        <script>
-            var optionSweet = ['달달함','약간 달달함','안 달달함'];
-            printCheckBox(optionSweet, cntSweet)
-        </script><br>
-        <input type='button' value='입력 완료' onclick="
-            checkCheckBox(listSweet, cntSweet, '#blockSweet', '#blockSalty')">
-        <script>printNotion2()</script>
-    </div>
-
-    <!-- ======================== 짭짤함 ======================== -->
-    <div id="blockSalty" style="display: none;";>
-        <h3>먹고 싶은 짭짤한 정도를 선택하세요 (중복 선택 가능)</h3>
-        <script>
-            var optionSalty = ['짭짤함','약간 짭짤함','안 짭짤함'];
-            printCheckBox(optionSalty, cntSalty)
-        </script><br>
-        <input type='button' value='입력 완료' onclick="
-            checkCheckBox(listSalty, cntSalty, '#blockSalty', '#blockPreResult')">
-        <script>printNotion2()</script>
-    </div>
-
-    <!-- ====================== 결과 보기 버튼 ====================== -->
-    <div id="blockPreResult" style="display: none;";>
-        <input type='button' value='결과 보기' onclick="
-            analysisResult();
-            this.style.display = 'none';
-            printResult();
-        ">
-    </div>
-
-    
 </body>
 
 </html>
