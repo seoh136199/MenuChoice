@@ -21,8 +21,12 @@ function analysisResult() {
     }
 }
 
-function printResult() {
-    var rank = [];
+function resetResult() {
+
+    var names = [];
+    var scores = [];
+    var rank = [];  
+    
     for (var i = 0; i < cntMenu; i++) {
 		rank[i] = i;
 	}
@@ -37,10 +41,11 @@ function printResult() {
 		}
 	}
 
-    document.write("<h1>메뉴 선정 결과!</h1><br>");
-    document.write("당신이 각 음식을 먹고 싶을 확률<br><br>");
-    for (var i = 0; i < 10; i++) {
-		document.write(menu[rank[i]][0] + " : " + menu[rank[i]][1].toFixed(1) + "%<br>");
-	}
+    names = document.querySelectorAll('.resultName')
+    scores = document.querySelectorAll('.resultScore')
 
+    for (var i = 0; i < 10; i++) {
+        names[i].innerHTML = menu[rank[i]][0];;
+        scores[i].innerHTML = menu[rank[i]][1].toFixed(1);
+	}
 }
