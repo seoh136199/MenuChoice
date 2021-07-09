@@ -87,15 +87,23 @@ var listNation = [], listMI = [], listCM = [], listSpicy = [];
 var listFull = [], listPrice = [], listTemp = [], listOily = [], listSweet = [], listSalty = [];
 
 function printInputBox(list, cnt){
+    document.write("<div id='innerGrid1'>");
+    document.write("<div></div> <div>");
     for (var i = 0; i < cnt; i++){
-        document.write(list[i] + " <input class='input' type='number' max='100' min='0' value=100><br>");
+        document.write("<div class='inputOption'>" + list[i] + " <input class='inputValueSlider' type='range' max='100' min='0' value='50' step='1'><br></div>");
     }
+    document.write("</div> <div></div>");
+    document.write("</div>");
 }
 
 function printCheckBox(list, cnt){
+    document.write("<div id='innerGrid2'>");
+    document.write("<div></div> <div>");
     for (var i = 0; i < cnt; i++){
-        document.write("<input class='input' type='checkbox' Checked> " + list[i] + "<br>");
+        document.write("<div class='inputOption'><input class='inputValue' type='checkbox' Checked>  " + list[i] + "<br></div>");
     }
+    document.write("</div> <div></div>");
+    document.write("</div>");
 }
 
 function printNotion1(){
@@ -103,31 +111,40 @@ function printNotion1(){
 }
 
 function printNotion2(){
-    document.write('<div id="notion" style="display: none; color:red;"> 한 가지 이상 선택해주세요 </div>');
+    document.write('<div id="notion" class="notion" style="display: none; color:red;"> 한 가지 이상 선택해주세요 </div>');
 }
 
-function checkInputBox(list, cnt, selfBlockId, nextBlockId){
-    var t_list = document.querySelector(selfBlockId).querySelectorAll('.input');
-    var t_cnt = 0;
+function checkSlider(list, cnt, selfBlockId, nextBlockId){
+    var t_list = document.querySelector(selfBlockId).querySelectorAll('.inputValueSlider');
     for (var i = 0; i < cnt; i++) {
-        if (t_list[i].value != '' && t_list[i].value <= 100 && t_list[i].value >= 0) {
-            t_cnt++;
-        }
+        list[i] = t_list[i].value;
     }
-    if (t_cnt === cnt) {
-        for (var i = 0; i < cnt; i++) {
-            list[i] = t_list[i].value;
-        }
-        document.querySelector(selfBlockId).style.display = 'none';
-        document.querySelector(nextBlockId).style.display = 'block';
-    }
-    else {
-        document.querySelector(selfBlockId).querySelector('#notion').style.display = 'inline';
-    }
+    document.querySelector(selfBlockId).style.display = 'none';
+    document.querySelector(nextBlockId).style.display = 'block';
 }
+
+// function checkInputBox(list, cnt, selfBlockId, nextBlockId){
+//     var t_list = document.querySelector(selfBlockId).querySelectorAll('.inputValue');
+//     var t_cnt = 0;
+//     for (var i = 0; i < cnt; i++) {
+//         if (t_list[i].value != '' && t_list[i].value <= 100 && t_list[i].value >= 0) {
+//             t_cnt++;
+//         }
+//     }
+//     if (t_cnt === cnt) {
+//         for (var i = 0; i < cnt; i++) {
+//             list[i] = t_list[i].value;
+//         }
+//         document.querySelector(selfBlockId).style.display = 'none';
+//         document.querySelector(nextBlockId).style.display = 'block';
+//     }
+//     else {
+//         document.querySelector(selfBlockId).querySelector('#notion').style.display = 'inline';
+//     }
+// }
 
 function checkCheckBox(list, cnt, selfBlockId, nextBlockId){
-    var t_list = document.querySelector(selfBlockId).querySelectorAll('.input');
+    var t_list = document.querySelector(selfBlockId).querySelectorAll('.inputValue');
     var t_cnt = 0;
     for (var i = 0; i < cnt; i++) {
         if (t_list[i].checked == true) t_cnt++;
