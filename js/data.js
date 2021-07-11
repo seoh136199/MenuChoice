@@ -86,7 +86,7 @@ const cntFull = 3, cntPrice = 3, cntTemp = 3, cntOily = 2, cntSweet = 3, cntSalt
 var listNation = [], listMI = [], listCM = [], listSpicy = [];
 var listFull = [], listPrice = [], listTemp = [], listOily = [], listSweet = [], listSalty = [];
 
-function printInputBox(list, cnt){
+function printSliderBox(list, cnt){
     document.write("<div id='innerGrid1'>");
     document.write("<div></div> <div>");
     for (var i = 0; i < cnt; i++){
@@ -96,11 +96,13 @@ function printInputBox(list, cnt){
     document.write("</div>");
 }
 
-function printCheckBox(list, cnt){
+function printCheckBox(list, cnt, labelName){
     document.write("<div id='innerGrid2'>");
     document.write("<div></div> <div>");
     for (var i = 0; i < cnt; i++){
-        document.write("<div class='inputOption'><input class='inputValue' type='checkbox' Checked>  " + list[i] + "<br></div>");
+        document.write("<label for=" + labelName + i + ">")
+        document.write("<div class='inputOption'><input class='inputValue' type='checkbox' id='" + labelName + i + "'Checked>  " + list[i] + "<br></div>");
+        document.write("</label>");
     }
     document.write("</div> <div></div>");
     document.write("</div>");
