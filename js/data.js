@@ -125,6 +125,24 @@ function checkSlider(list, cnt, selfBlockId, nextBlockId){
     document.querySelector(nextBlockId).style.display = 'block';
 }
 
+function checkCheckBox(list, cnt, selfBlockId, nextBlockId){
+    var t_list = document.querySelector(selfBlockId).querySelectorAll('.inputValue');
+    var t_cnt = 0;
+    for (var i = 0; i < cnt; i++) {
+        if (t_list[i].checked == true) t_cnt++;
+    }
+    if (t_cnt >= 1) {
+        for (var i = 0; i < cnt; i++) {
+            list[i] = t_list[i].checked;
+        }
+        document.querySelector(selfBlockId).style.display = 'none';
+        document.querySelector(nextBlockId).style.display = 'block';
+    }
+    else {
+        document.querySelector(selfBlockId).querySelector('#notion').style.display = 'block';
+    }
+}
+
 // function checkInputBox(list, cnt, selfBlockId, nextBlockId){
 //     var t_list = document.querySelector(selfBlockId).querySelectorAll('.inputValue');
 //     var t_cnt = 0;
@@ -144,21 +162,3 @@ function checkSlider(list, cnt, selfBlockId, nextBlockId){
 //         document.querySelector(selfBlockId).querySelector('#notion').style.display = 'inline';
 //     }
 // }
-
-function checkCheckBox(list, cnt, selfBlockId, nextBlockId){
-    var t_list = document.querySelector(selfBlockId).querySelectorAll('.inputValue');
-    var t_cnt = 0;
-    for (var i = 0; i < cnt; i++) {
-        if (t_list[i].checked == true) t_cnt++;
-    }
-    if (t_cnt >= 1) {
-        for (var i = 0; i < cnt; i++) {
-            list[i] = t_list[i].checked;
-        }
-        document.querySelector(selfBlockId).style.display = 'none';
-        document.querySelector(nextBlockId).style.display = 'block';
-    }
-    else {
-        document.querySelector(selfBlockId).querySelector('#notion').style.display = 'inline';
-    }
-}
