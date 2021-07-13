@@ -18,13 +18,15 @@
         }
         html{
             width:100vw;
+            font-size: 1vh;
         }
         h1 {
-            font-size: 60px;
+            margin-top: 10vh;
+            font-size: 7.2rem;
             text-align: center;
         }
         h2 {
-            font-size: 25px;
+            font-size: 4rem;
             text-align: center;
             color:DarkBlue;
         }
@@ -38,11 +40,11 @@
         }
         .inputOption{
             color:MidnightBlue;
-            font-size: 28px;
-            padding: 10px;
-            padding-left: 20px;
-            padding-right: 20px;
-            margin: 7px;
+            font-size: 3.8rem;
+            padding: 1.5vh;
+            padding-left: 3vh;
+            padding-right: 3vh;
+            margin: 1vh;
             border-radius: 22px;
             background-color: Bisque;
         }
@@ -51,12 +53,14 @@
             border-radius: 10px;
             padding:20px;
         }
-        #notion{
+        .notion{
             font-size: 20px;
             color: Crimson;
-            float: left;
+            text-align: center;
+            width: 40vh;
+            margin: auto;
             margin-top: 14px;
-            margin-left: 210px;
+            display: block; 
         }
         .result{
             font-size: 23px;
@@ -65,51 +69,72 @@
         #resultBox{
             padding: 20px;
             margin: 7px;
+            margin-bottom: 10vh;
             border-radius: 14px;
             background-color: PaleTurquoise;
         }
-        .inputButton{
-            float: right;
-            cursor: pointer;
-        }
         .soloButton{
             background-color: white;
-            padding: 15px 20px;
-            margin-top: 30px;
-            font-size: 30px;
+            padding: 2vh 3vh;
+            margin-top: 5vh;
+            font-size: 5rem;
             border-color: CadetBlue;
             border-radius: 20px;
             text-decoration: none;
             cursor: pointer;
         }
         .inputButton{
+            cursor: pointer;
             background-color: white;
+            margin-top: 5vh;
+            margin-bottom: 5vh;
             padding: 10px 12px;
-            font-size: 16px;
+            font-size: 2.2rem;
             border-color: BurlyWood;
             border-radius: 20px;
             text-decoration: none;
-            cursor: pointer;
+            width:12vh;
+            margin: auto;
+            display: block; 
         }
 
-        #outerGrid{
-            display: grid;
-            grid-template-columns: 1fr 544px 1fr;
+        @media only screen and (orientation: landscape) {
+            #outerGrid{
+                display: grid;
+                grid-template-columns: 1fr 3fr 1fr;
+            }
+            #innerGrid1{
+                display: grid;
+                grid-template-columns: 1fr 1.5fr 1fr;
+            }
+            #innerGrid2{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+            }
         }
-        #innerGrid1{
-            display: grid;
-            grid-template-columns: 1fr 320px 1fr;
-        }
-        #innerGrid2{
-            display: grid;
-            grid-template-columns: 1fr 260px 1fr;
+
+        @media only screen and (orientation: portrait) {
+            #outerGrid{
+                display: grid;
+                grid-template-columns: 1fr 50fr 1fr;
+            }
+            #innerGrid1{
+                display: grid;
+                grid-template-columns: 1fr 20fr 1fr;
+            }
+            #innerGrid2{
+                display: grid;
+                grid-template-columns: 1fr 5fr 1fr;
+            }
         }
 
     </style>
 </head>
 
 <body style="background-color: LemonChiffon;">
-    <h1 id='title'>오늘 뭐 먹지?</h1>
+    <div>
+        <h1 id='title'>오늘 뭐 먹지?</h1>
+    </div>
     <div id="outerGrid">
         <div></div>
 
@@ -146,7 +171,7 @@
             <div id="blockCM" class="block" style="display: none;";>
                 <h2>각 조리 방법의 음식을 먹고 싶은 정도를 입력해주세요.</h2>
                 <script>
-                    var optionCM = ['구이','볶음','찜or탕or국','비조리','튀김','부침'];
+                    var optionCM = ['구이','볶음','찜/탕/국','비조리','튀김','부침'];
                     printSliderBox(optionCM, cntCM)
                 </script><br>
                 <input type='button' class='inputButton' value='입력 완료' onclick="
@@ -160,9 +185,10 @@
                     var optionSpicy = ['매움','약간 매움','안 매움'];
                     printCheckBox(optionSpicy, cntSpicy, "spicy")
                 </script><br>
-                <script>printNotion2()</script>
+                
                 <input type='button' style="display: block;" class='inputButton' value='입력 완료' onclick="
                     checkCheckBox(listSpicy, cntSpicy, '#blockSpicy', '#blockFull')">
+                <script>printNotion2()</script>
                 <br>
             </div>
 
