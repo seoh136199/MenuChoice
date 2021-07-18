@@ -31,7 +31,7 @@ function resetResult() {
 		rank[i] = i;
 	}
     
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < cntMenu; i++) {
 		for (var j = i + 1; j < cntMenu; j++) {
 			if (menu[rank[i]][1] < menu[rank[j]][1]) {
 				var tmp = rank[i];
@@ -44,7 +44,7 @@ function resetResult() {
     names = document.querySelectorAll('.resultName')
     scores = document.querySelectorAll('.resultScore')
 
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < cntMenu; i++) {
         names[i].innerHTML = menu[rank[i]][0];;
         scores[i].innerHTML = menu[rank[i]][1].toFixed(1);
 	}
