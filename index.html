@@ -85,7 +85,7 @@
             font-size: 23px;
             padding: 5px;
         }
-        #resultBox{
+        .outerResultBox{
             padding: 20px;
             margin: 7px;
             margin-bottom: 10vh;
@@ -114,6 +114,21 @@
             text-decoration: none;
             width:12vh;
             margin: auto;
+            display: block; 
+        }
+
+        .seeMore{
+            cursor: pointer;
+            background-color: white;
+            margin:auto;
+            margin-top: 2vh;
+            margin-bottom: 1vh;
+            padding: 10px 12px;
+            font-size: 1.8vw;
+            border-color: blue;
+            border-radius: 20px;
+            text-decoration: none;
+            width:14vh;
             display: block; 
         }
 
@@ -301,22 +316,72 @@
             </div>
             
             <div id="blockResult" style="display: none;">
+                <h1>메뉴 선정 결과!</h1>
+                <h2>당신이 각 음식을 먹고 싶을 확률<br></h2>
+                
+                <div id='innerGrid2'>
+                <div></div> <div class='outerResultBox'>
+                
+                <div class='innerResultBox' id='result1_10'>
                 <script>
-                    document.write("<h1>메뉴 선정 결과!</h1>");
-                    document.write("<h2>당신이 각 음식을 먹고 싶을 확률<br></h2>");
-                    
-                    document.write("<div id='innerGrid2'>");
-                    document.write("<div></div> <div id='resultBox'>");
-
                     for (var i = 0; i < 10; i++) {
                         document.write("<div class='result'>");
                         document.write("<span class='resultName'>" + '이름' + "</span> : ");
                         document.write("<span class='resultScore'>" + 0 + "</span>");
                         document.write("%</div>");
                     }
-                    document.write("</div> <div></div>");
-                    document.write("</div>");
                 </script>
+                </div>
+
+                <div class='innerResultBox' id='result11_20' style="display:none">
+                <script>
+                    for (var i = 10; i < 20; i++) {
+                        document.write("<div class='result'>");
+                        document.write("<span class='resultName'>" + '이름' + "</span> : ");
+                        document.write("<span class='resultScore'>" + 0 + "</span>");
+                        document.write("%</div>");
+                    }
+                </script>
+                </div>
+
+                <div class='innerResultBox' id='result21_30' style="display:none">
+                <script>
+                    for (var i = 20; i < 30; i++) {
+                        document.write("<div class='result'>");
+                        document.write("<span class='resultName'>" + '이름' + "</span> : ");
+                        document.write("<span class='resultScore'>" + 0 + "</span>");
+                        document.write("%</div>");
+                    }
+                </script>
+                </div>
+
+                <div class='innerResultBox' id='result31_last' style="display:none">
+                <script>
+                    for (var i = 30; i < cntMenu; i++) {
+                        document.write("<div class='result'>");
+                        document.write("<span class='resultName'>" + '이름' + "</span> : ");
+                        document.write("<span class='resultScore'>" + 0 + "</span>");
+                        document.write("%</div>");
+                    }
+                </script>
+                </div>
+
+                <input type='button' class='seeMore' value='10개 더 보기' id="seeMore11_20" style="display:block;" onclick="
+                    document.querySelector('#result11_20').style.display = 'block'
+                    document.querySelector('#seeMore21_30').style.display = 'block'
+                    this.style.display = 'none'">
+
+                <input type='button' class='seeMore' value='10개 더 보기' id="seeMore21_30" style="display:none;" onclick="
+                    document.querySelector('#result21_30').style.display = 'block'
+                    document.querySelector('#seeMore31_last').style.display = 'block'
+                    this.style.display = 'none'">
+
+                <input type='button' class='seeMore' value='전부 다 보기' id="seeMore31_last" style="display:none;" onclick="
+                    document.querySelector('#result31_last').style.display = 'block'
+                    this.style.display = 'none'">
+
+                </div> <div></div>
+                </div>
             </div>
 
         </div>
