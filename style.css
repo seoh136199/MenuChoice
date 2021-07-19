@@ -152,7 +152,7 @@ body {
     }
 }
 
-@media only screen and (min-aspect-ratio:40/12) {
+@media only screen and (min-aspect-ratio:40/10) {
     #main{
         display: none;
     }
