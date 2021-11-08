@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>오늘 뭐 먹지?</title>
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="FL_oj4NPDre44xtLY4UhJUfNNuiLqFgsgdD_YIbrPsQ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="text/javascript" src="./js/data.js"></script>
+    <script type='text/javascript' src='./js/analysis.js'></script>
+    
+    <link rel="stylesheet" type="text/css" href="./style.css">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="./image/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./image/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./image/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./image/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./image/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./image/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./image/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./image/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./image/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="./image/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./image/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./image/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./image/favicon-16x16.png">
+    <link rel="manifest" href="./image/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./image/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body style="background-color: LemonChiffon;">
+    <div id="main">
+        <div id="outerGrid">
+            <div></div>
+
+            <div>
+
+                <div id="blockNation" class="block" style="display: block;";>
+                    <h2>각 종류의 음식을 먹고 싶은 정도를  입력해주세요.</h2>
+                    <script>
+                        var optionNation = ['한식','중식','양식','일식','분식','야식','편의점식'];
+                        printSliderBox(optionNation, cntNation)
+                    </script><br>
+                    <input type='button' class='inputButton' value='입력 완료' onclick="
+                        checkSlider(listNation, cntNation, '#blockNation', '#blockMI')">
+                    <br>
+                </div>
+
+                <div id="blockMI" class="block" style="display: none;";>
+                    <h2>각 주재료를 먹고 싶은 정도를 입력해주세요.</h2>
+                    <script>
+                        var optionMI = ['밥','빵','면','떡','소고기','돼지고기','닭고기','해산물','야채'];
+                        printSliderBox(optionMI, cntMI)
+                    </script><br>
+                    <input type='button' class='inputButton' value='입력 완료' onclick="
+                        checkSlider(listMI, cntMI, '#blockMI', '#blockCM')">
+                    <br>
+                </div>
+                
+                <div id="blockCM" class="block" style="display: none;";>
+                    <h2>각 조리 방법의 음식을 먹고 싶은 정도를 입력해주세요.</h2>
+                    <script>
+                        var optionCM = ['구이','볶음','찜/탕/국','비조리','튀김','부침'];
+                        printSliderBox(optionCM, cntCM)
+                    </script><br>
+                    <input type='button' class='inputButton' value='입력 완료' onclick="
+                        checkSlider(listCM, cntCM, '#blockCM', '#blockSpicy')">
+                    <br>
+                </div>
+
+                <div id="blockSpicy" class="block" style="display: none;";>
+                    <h2>원하는 매운 정도를 선택해주세요. (중복 선택 가능)</h2>
+                    <script>
+                        var optionSpicy = ['매움','약간 매움','안 매움'];
+                        printCheckBox(optionSpicy, cntSpicy, "spicy")
+                    </script><br>
+                    
+                    <input type='button' style="display: block;" class='inputButton' value='입력 완료' onclick="
+                        checkCheckBox(listSpicy, cntSpicy, '#blockSpicy', '#blockFull')">
+                    <script>printNotion2()</script>
+                    <br>
+                </div>
+
+                <div id="blockFull" class="block" style="display: none;";>
+                    <h2>원하는 배부른 정도를 선택해주세요. (중복 선택 가능)</h2>
+                    <script>
+                        var optionFull = ['든든함','보통','간단함'];
+                        printCheckBox(optionFull, cntFull, "full")
+                    </script><br>
+                    <input type='button' class='inputButton' value='입력 완료' onclick="
+                        checkCheckBox(listFull, cntFull, '#blockFull', '#blockPrice')">
+                    <script>printNotion2()</script>
+                    <br>
+                </div>
+
+                <div id="blockPrice" class="block" style="display: none;";>
+                    <h2>원하는 가격대를 선택해주세요. (중복 선택 가능)</h2>
+                    <script>
+                        var optionPrice = ['저렴함','보통','비쌈'];
+                        printCheckBox(optionPrice, cntPrice, "price")
+                    </script><br>
+                    <input type='button' class='inputButton' value='입력 완료' onclick="
+                        checkCheckBox(listPrice, cntPrice, '#blockPrice', '#blockTemp')">
+                    <script>printNotion2()</script>
+                    <br>
+                </div>
+
+                <div id="blockTemp" class="block" style="display: none;";>
+                    <h2>원하는 음식의 온도를 선택해주세요. (중복 선택 가능)</h2>
+                    <script>
+                        var optionTemp = ['따뜻함','보통','차가움'];
+                        printCheckBox(optionTemp, cntTemp, "temp")
+                    </script><br>
+                    <input type='button' class='inputButton' value='입력 완료' onclick="
+                        checkCheckBox(listTemp, cntTemp, '#blockTemp', '#blockOily')">
+                    <script>printNotion2()</script>
+                    <br>
+                </div>
+
+                <div id="blockOily" class="block" style="display: none;";>
+                    <h2>원하는 담백한 정도를 선택해주세요. (중복 선택 가능)</h2>
+                    <script>
+                        var optionOily = ['느끼함','담백함'];
+                        printCheckBox(optionOily, cntOily, "oily")
+                    </script><br>
+                    <input type='button' class='inputButton' value='입력 완료' onclick="
+                        checkCheckBox(listOily, cntOily, '#blockOily', '#blockSweet')">
+                    <script>printNotion2()</script>
+                    <br>
+                </div>
+
+                <div id="blockSweet" class="block" style="display: none;";>
+                    <h2>원하는 달달한 정도를 선택해주세요. (중복 선택 가능)</h2>
+                    <script>
+                        var optionSweet = ['달달함','약간 달달함','안 달달함'];
+                        printCheckBox(optionSweet, cntSweet, "sweet")
+                    </script><br>
+                    <input type='button' class='inputButton' value='입력 완료' onclick="
+                        checkCheckBox(listSweet, cntSweet, '#blockSweet', '#blockSalty')">
+                    <script>printNotion2()</script>
+                    <br>
+                </div>
+
+                <div id="blockSalty" class="block" style="display: none;";>
+                    <h2>원하는 짭짤한 정도를 선택해주세요. (중복 선택 가능)</h2>
+                    <script>
+                        var optionSalty = ['짭짤함','약간 짭짤함','안 짭짤함'];
+                        printCheckBox(optionSalty, cntSalty, "salty")
+                    </script><br>
+                    <input type='button' class='inputButton' value='입력 완료' onclick="
+                        checkCheckBox(listSalty, cntSalty, '#blockSalty', '#blockPreResult')">
+                    <script>printNotion2()</script>
+                    <br>
+                </div>
+
+                <div id="blockPreResult" style="display: none; text-align: center;";>
+                    <input type='button' value='결과 보기' class="soloButton" style="margin-top: 20vh;" onclick="
+                        analysisResult();
+                        resetResult();
+                        this.style.display = 'none';
+                        document.querySelector('#blockResult').style.display = 'block';
+                    ">
+                </div>
+                
+                <div id="blockResult" style="display: none;">
+                    <h1>메뉴 선정 결과!</h1>
+                    <h2>당신이 각 음식을 먹고 싶을 확률<br></h2>
+                    
+                    <div id='innerGrid2'>
+                    <div></div> <div class='outerResultBox'>
+                    
+                    <div class='innerResultBox' id='result1_10'>
+                    <script>
+                        for (var i = 0; i < 10; i++) {
+                            document.write("<div class='result'>");
+                            document.write("<span class='resultName'>" + '이름' + "</span> : ");
+                            document.write("<span class='resultScore'>" + 0 + "</span>");
+                            document.write("%</div>");
+                        }
+                    </script>
+                    </div>
+
+                    <div class='innerResultBox' id='result11_20' style="display:none">
+                    <script>
+                        for (var i = 10; i < 20; i++) {
+                            document.write("<div class='result'>");
+                            document.write("<span class='resultName'>" + '이름' + "</span> : ");
+                            document.write("<span class='resultScore'>" + 0 + "</span>");
+                            document.write("%</div>");
+                        }
+                    </script>
+                    </div>
+
+                    <div class='innerResultBox' id='result21_30' style="display:none">
+                    <script>
+                        for (var i = 20; i < 30; i++) {
+                            document.write("<div class='result'>");
+                            document.write("<span class='resultName'>" + '이름' + "</span> : ");
+                            document.write("<span class='resultScore'>" + 0 + "</span>");
+                            document.write("%</div>");
+                        }
+                    </script>
+                    </div>
+
+                    <div class='innerResultBox' id='result31_last' style="display:none">
+                    <script>
+                        for (var i = 30; i < cntMenu; i++) {
+                            document.write("<div class='result'>");
+                            document.write("<span class='resultName'>" + '이름' + "</span> : ");
+                            document.write("<span class='resultScore'>" + 0 + "</span>");
+                            document.write("%</div>");
+                        }
+                    </script>
+                    </div>
+
+                    <input type='button' class='seeMore' value='10개 더 보기' id="seeMore11_20" style="display:block;" onclick="
+                        document.querySelector('#result11_20').style.display = 'block'
+                        document.querySelector('#seeMore21_30').style.display = 'block'
+                        this.style.display = 'none'">
+
+                    <input type='button' class='seeMore' value='10개 더 보기' id="seeMore21_30" style="display:none;" onclick="
+                        document.querySelector('#result21_30').style.display = 'block'
+                        document.querySelector('#seeMore31_last').style.display = 'block'
+                        this.style.display = 'none'">
+
+                    <input type='button' class='seeMore' value='전부 다 보기' id="seeMore31_last" style="display:none;" onclick="
+                        document.querySelector('#result31_last').style.display = 'block'
+                        this.style.display = 'none'">
+
+                    </div> <div></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

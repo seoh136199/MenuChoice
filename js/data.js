@@ -46,8 +46,8 @@ var menu = [
     ["곱창",          0, 0, 4, 5, 0, 2, 0, 2, 0, 0, 2, 1],
     ["보쌈",          0, 0, 5, 5, 2, 2, 0, 2, 0, 0, 2, 1],
     ["라면",          0, 6, 2, 2, 2, 0, 2, 0, 0, 1, 2, 0],
-    ["삼각김밥",       0, 6, 0, 0, 3, 1, 2, 0, 1, 1, 2, 2],
-    ["편의점 도시락",  0, 6, 0, 0, 3, 1, 1, 0, 0, 0, 1, 1],
+    ["삼각김밥",      0, 6, 0, 0, 3, 1, 2, 0, 1, 1, 2, 2],
+    ["편의점 도시락", 0, 6, 0, 0, 3, 1, 1, 0, 0, 0, 1, 1],
     ["전복죽",        0, 0, 0, 7, 2, 2, 1, 2, 0, 1, 2, 2],
     ["야채죽",        0, 0, 8, 0, 2, 2, 1, 1, 0, 1, 2, 2],
     ["쇠고기죽",      0, 0, 0, 4, 2, 2, 1, 1, 0, 1, 2, 2],
@@ -67,11 +67,11 @@ var menu = [
     ["라멘",          0, 3, 2, 2, 2, 2, 1, 1, 0, 0, 2, 1],
     ["초계국수",      0, 0, 2, 2, 2, 2, 1, 1, 2, 1, 2, 2],
     ["찐만두",        0, 1, 5, 8, 2, 2, 1, 0, 0, 1, 2, 2],
-    ["메밀국수",      0, 3, 22, 3, 2, 1, 1, 2, 1, 1, 0],
-    ["콩국수",        0, 0, 22, 3, 2, 1, 1, 2, 1, 2, 2],
-    ["우동",          0, 3, 22, 2, 2, 1, 1, 0, 1, 1, 1],
-    ["해물파전",      0, 0, 78, 5, 2, 1, 1, 0, 1, 2, 1],
-    ["육회",          0, 0, 44, 3, 2, 1, 2, 2, 1, 1, 2],
+    ["메밀국수",      0, 3, 2, 2, 3, 2, 1, 1, 2, 1, 1, 0],
+    ["콩국수",        0, 0, 2, 2, 3, 2, 1, 1, 2, 1, 2, 2],
+    ["우동",          0, 3, 2, 2, 2, 2, 1, 1, 0, 1, 1, 1],
+    ["해물파전",      0, 0, 7, 8, 5, 2, 1, 1, 0, 1, 2, 1],
+    ["육회",          0, 0, 4, 4, 3, 2, 1, 2, 2, 1, 1, 2],
     ["양꼬치",        0, 1, 4, 5, 0, 2, 0, 2, 0, 0, 2, 2],
     ["아구찜",        0, 0, 7, 7, 2, 0, 0, 2, 0, 1, 2, 2],
     ["훈제 오리",     0, 0, 6, 6, 0, 2, 1, 2, 0, 0, 2, 1],
@@ -142,23 +142,3 @@ function checkCheckBox(list, cnt, selfBlockId, nextBlockId){
         document.querySelector(selfBlockId).querySelector('#notion').style.display = 'block';
     }
 }
-
-// function checkInputBox(list, cnt, selfBlockId, nextBlockId){
-//     var t_list = document.querySelector(selfBlockId).querySelectorAll('.inputValue');
-//     var t_cnt = 0;
-//     for (var i = 0; i < cnt; i++) {
-//         if (t_list[i].value != '' && t_list[i].value <= 100 && t_list[i].value >= 0) {
-//             t_cnt++;
-//         }
-//     }
-//     if (t_cnt === cnt) {
-//         for (var i = 0; i < cnt; i++) {
-//             list[i] = t_list[i].value;
-//         }
-//         document.querySelector(selfBlockId).style.display = 'none';
-//         document.querySelector(nextBlockId).style.display = 'block';
-//     }
-//     else {
-//         document.querySelector(selfBlockId).querySelector('#notion').style.display = 'inline';
-//     }
-// }
