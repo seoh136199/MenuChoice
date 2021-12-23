@@ -61,7 +61,6 @@ function resetResult() {
 function makeCodeShort(orgnCode){
     rstCode = "";
     for (var i = 0; i < cntMenu; i++) {
-        
 	}
 }
 
