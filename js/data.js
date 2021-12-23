@@ -85,6 +85,7 @@ const cntMenu = 81, cntNation = 7, cntMI = 9, cntCM = 6, cntSpicy = 3;
 const cntFull = 3, cntPrice = 3, cntTemp = 3, cntOily = 2, cntSweet = 3, cntSalty = 3;
 var listNation = [], listMI = [], listCM = [], listSpicy = [];
 var listFull = [], listPrice = [], listTemp = [], listOily = [], listSweet = [], listSalty = [];
+var tasteCodes = [], cntTasteCode = 2;
 
 function printSliderBox(list, cnt){
     document.write("<div id='innerGrid1'>");
@@ -109,11 +110,15 @@ function printCheckBox(list, cnt, labelName){
 }
 
 function printNotion1(){
-    document.write('<div id="notion" style="display: none; color:red;"> 입력되지 않았거나 입력이 잘못된 항목이 있습니다. </div>');
+    document.write('<div id="notion1" class="notion" style="display: none; color:red;"> 입력되지 않았거나 입력이 잘못된 항목이 있습니다. </div>');
 }
 
 function printNotion2(){
-    document.write('<div id="notion" class="notion" style="display: none; color:red;"> 한 가지 이상 선택해주세요 </div>');
+    document.write('<div id="notion2" class="notion" style="display: none; color:red;"> 한 가지 이상 선택해주세요. </div>');
+}
+
+function printNotion3(){
+    document.write('<div id="notion3" class="notion" style="display: none; color:red;"> 칸은 2~8개만 이용할 수 있습니다. </div>');
 }
 
 function checkSlider(list, cnt, selfBlockId, nextBlockId){
@@ -139,6 +144,26 @@ function checkCheckBox(list, cnt, selfBlockId, nextBlockId){
         document.querySelector(nextBlockId).style.display = 'block';
     }
     else {
-        document.querySelector(selfBlockId).querySelector('#notion').style.display = 'block';
+        document.querySelector(selfBlockId).querySelector('#notion2').style.display = 'block';
+    }
+}
+
+function checkTasteCodeInput(list, selfBlockId, nextBlockId){ 
+    var t_list = document.querySelector(selfBlockId).querySelectorAll('.tasteCodeInput');
+    var isAvailable = 1;
+    for (var i = 0; i < cntTasteCode && isAvailable == 1; i++) {
+        list[i] = t_list[i].value;
+        if (list[i].length != 2*cntMenu) {
+            isAvailable = 0;
+        }
+    }
+
+    if (isAvailable){
+        document.querySelector(selfBlockId).style.display = 'none';
+        document.querySelector(nextBlockId).style.display = 'block';
+        document.querySelector('.returnToMainButton').style.display = 'none';
+    }
+    else{
+        document.querySelector(selfBlockId).querySelector('#notion1').style.display = 'block';
     }
 }

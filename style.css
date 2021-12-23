@@ -49,7 +49,7 @@ body {
     text-align: center;
     width: 40vh;
     margin: auto;
-    margin-top: 14px;
+    margin-top: 2px;
     display: block; 
 }
 .result{
@@ -63,11 +63,19 @@ body {
     border-radius: 14px;
     background-color: PaleTurquoise;
 }
+#tasteCodeBlock{
+    padding: 20px;
+    margin: 7px;
+    border-radius: 14px;
+    background-color: PaleTurquoise;
+}
 .soloButton{
     background-color: white;
     padding: 2vh 3vh;
     margin-top: 5vh;
     font-size: 5rem;
+    border-style: solid;
+    border-width: medium;
     border-color: CadetBlue;
     border-radius: 20px;
     text-decoration: none;
@@ -76,16 +84,53 @@ body {
 .inputButton{
     cursor: pointer;
     background-color: white;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
     padding: 10px 12px;
-    font-size: 2.2rem;
+    font-size: 2.6rem;
     border-color: BurlyWood;
     border-radius: 20px;
     text-decoration: none;
-    width:12vh;
+    width:14vh;
     margin: auto;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
     display: block; 
+}
+.addRemoveButton{
+    cursor: pointer;
+    background-color: white;
+    padding: 10px 12px;
+    font-size: 2.0rem;
+    border-color: CadetBlue;
+    border-radius: 20px;
+    text-decoration: none;
+    margin-left: 1vh;
+    margin-right: 1vh;
+    margin-bottom: 4vh;
+    margin-top: 2vh;
+    display: inline-block; 
+}
+.tasteCodeInput{
+    background-color: white;
+    padding: 10px 12px;
+    font-size: 2.2rem;
+    border-color: Thistle;
+    border-radius: 20px;
+    width: 36vw;
+    margin: auto;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    display: block; 
+}
+.returnToMainButton{
+    color:MidnightBlue;
+    font-size: 2.8rem;
+    padding: 1.5vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    margin-top: 4vh;
+    margin: auto;
+    border-radius: 22px;
+    background-color: #FFD2D2;
 }
 
 .seeMore{
@@ -119,6 +164,11 @@ body {
         display: grid;
         grid-template-columns: 1fr 40vh 1fr;
     }
+    #innerGrid3{
+        display: grid;
+        font-size: 2.8rem;
+        grid-template-columns: 1fr 50vh 1fr;
+    }
 }
 
 @media only screen and (max-aspect-ratio:4/5) {
@@ -136,6 +186,11 @@ body {
     #innerGrid2{
         display: grid;
         grid-template-columns: 1fr 5fr 1fr;
+    }
+    #innerGrid3{
+        display: grid;
+        grid-template-columns: 1fr 6fr 1fr;
+        font-size: 5vw;
     }
     .inputValueSlider{
         width: calc(60vw - 18vh);

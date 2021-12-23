@@ -151,7 +151,8 @@
                         printCheckBox(optionSalty, cntSalty, "salty")
                     </script><br>
                     <input type='button' class='inputButton' value='입력 완료' onclick="
-                        checkCheckBox(listSalty, cntSalty, '#blockSalty', '#blockPreResult')">
+                        checkCheckBox(listSalty, cntSalty, '#blockSalty', '#blockPreResult');
+                        document.querySelector('.returnToMainButton').style.display = 'none';">
                     <script>printNotion2()</script>
                     <br>
                 </div>
@@ -160,8 +161,10 @@
                     <input type='button' value='결과 보기' class="soloButton" style="margin-top: 20vh;" onclick="
                         analysisResult();
                         resetResult();
+                        makeTasteCode();
                         this.style.display = 'none';
                         document.querySelector('#blockResult').style.display = 'block';
+                        document.querySelector('.returnToMainButton').style.display = 'inline-block';
                     ">
                 </div>
                 
@@ -169,9 +172,18 @@
                     <h1>메뉴 선정 결과!</h1>
                     <h2>당신이 각 음식을 먹고 싶을 확률<br></h2>
                     
+
+                    <div id='innerGrid3'>
+                    <div></div> <div id="tasteCodeBlock" style="text-align: center;">
+                        취향 코드: 
+                        <div id="tasteCode" style="word-break: break-all;">여기에 코드 표시</div>
+                    </div> <div></div>
+                    </div>
+                    
                     <div id='innerGrid2'>
                     <div></div> <div class='outerResultBox'>
-                    
+                
+
                     <div class='innerResultBox' id='result1_10'>
                     <script>
                         for (var i = 0; i < 10; i++) {
@@ -233,11 +245,19 @@
                     </div> <div></div>
                     </div>
                 </div>
+                
+                <div style="text-align: center;">
+                    <a class="returnToMainButton" href="index.html">메인으로 돌아가기</a>
+                </div>
+
+            </div>
 
             </div>
 
             <div></div>
         </div>
+
+
     </div>
 
 </body>

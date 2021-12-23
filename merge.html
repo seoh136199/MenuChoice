@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>오늘 뭐 먹지?</title>
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="FL_oj4NPDre44xtLY4UhJUfNNuiLqFgsgdD_YIbrPsQ" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="text/javascript" src="./js/data.js"></script>
+    <script type='text/javascript' src='./js/analysis.js'></script>
+    
+    <link rel="stylesheet" type="text/css" href="./style.css">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="./image/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="./image/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="./image/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="./image/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="./image/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="./image/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="./image/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="./image/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./image/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="./image/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./image/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="./image/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./image/favicon-16x16.png">
+    <link rel="manifest" href="./image/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="./image/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+
+<body style="background-color: LemonChiffon;">
+    
+    <div id="scoreInput" class="block" style="display: block;";>
+        <h2>나와 친구의 취향코드를 입력해주세요.</h2>
+        
+        <input type='text' class='tasteCodeInput' style="display: block;">
+        <input type='text' class='tasteCodeInput' style="display: block;">
+        <input type='text' class='tasteCodeInput' style="display: none;">
+        <input type='text' class='tasteCodeInput' style="display: none;">
+        <input type='text' class='tasteCodeInput' style="display: none;">
+        <input type='text' class='tasteCodeInput' style="display: none;">
+        <input type='text' class='tasteCodeInput' style="display: none;">
+        <input type='text' class='tasteCodeInput' style="display: none;">
+
+        <script>printNotion3()</script>
+
+        <div style="margin: auto; text-align: center;">
+            <input type='button' class='addRemoveButton' value='칸 추가하기' onclick="
+            addTasteCodeInput()">
+            <input type='button' class='addRemoveButton' value='칸 없애기' onclick="
+            delTasteCodeInput()">
+        </div>
+
+        <script>printNotion1()</script>
+
+        <input type='button' class='inputButton' value='입력 완료' onclick="
+            checkTasteCodeInput(tasteCodes, '#scoreInput', '#blockPreResult');">
+        <br>
+
+    </div>
+
+    <div id="blockPreResult" style="display: none; text-align: center;";>
+        <input type='button' value='결과 보기' class="soloButton" style="margin-top: 20vh;" onclick="
+            analysisMergedResult();
+            resetResult();
+            this.style.display = 'none';
+            document.querySelector('#blockResult').style.display = 'block'
+            document.querySelector('.returnToMainButton').style.display = 'inline-block';
+        ">
+    </div>
+    
+    <div id="blockResult" style="display: none;">
+        <h1>메뉴 선정 결과!</h1>
+        <h2>당신들이 각 음식을 먹고 싶을 확률<br></h2>
+        
+        
+        <div id='innerGrid2'>
+        <div></div> <div class='outerResultBox'>
+    
+
+        <div class='innerResultBox' id='result1_10'>
+        <script>
+            for (var i = 0; i < 10; i++) {
+                document.write("<div class='result'>");
+                document.write("<span class='resultName'>" + '이름' + "</span> : ");
+                document.write("<span class='resultScore'>" + 0 + "</span>");
+                document.write("%</div>");
+            }
+        </script>
+        </div>
+
+        <div class='innerResultBox' id='result11_20' style="display:none">
+        <script>
+            for (var i = 10; i < 20; i++) {
+                document.write("<div class='result'>");
+                document.write("<span class='resultName'>" + '이름' + "</span> : ");
+                document.write("<span class='resultScore'>" + 0 + "</span>");
+                document.write("%</div>");
+            }
+        </script>
+        </div>
+
+        <div class='innerResultBox' id='result21_30' style="display:none">
+        <script>
+            for (var i = 20; i < 30; i++) {
+                document.write("<div class='result'>");
+                document.write("<span class='resultName'>" + '이름' + "</span> : ");
+                document.write("<span class='resultScore'>" + 0 + "</span>");
+                document.write("%</div>");
+            }
+        </script>
+        </div>
+
+        <div class='innerResultBox' id='result31_last' style="display:none">
+        <script>
+            for (var i = 30; i < cntMenu; i++) {
+                document.write("<div class='result'>");
+                document.write("<span class='resultName'>" + '이름' + "</span> : ");
+                document.write("<span class='resultScore'>" + 0 + "</span>");
+                document.write("%</div>");
+            }
+        </script>
+        </div>
+
+        <input type='button' class='seeMore' value='10개 더 보기' id="seeMore11_20" style="display:block;" onclick="
+            document.querySelector('#result11_20').style.display = 'block'
+            document.querySelector('#seeMore21_30').style.display = 'block'
+            this.style.display = 'none'">
+
+        <input type='button' class='seeMore' value='10개 더 보기' id="seeMore21_30" style="display:none;" onclick="
+            document.querySelector('#result21_30').style.display = 'block'
+            document.querySelector('#seeMore31_last').style.display = 'block'
+            this.style.display = 'none'">
+
+        <input type='button' class='seeMore' value='전부 다 보기' id="seeMore31_last" style="display:none;" onclick="
+            document.querySelector('#result31_last').style.display = 'block'
+            this.style.display = 'none'">
+
+        </div> <div></div>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <a class="returnToMainButton" href="index.html">메인으로 돌아가기</a>
+    </div>
+
+</body>
+
+</html>
