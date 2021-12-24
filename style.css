@@ -24,8 +24,13 @@ h2 {
 body {
     margin: 0px;
 }
+
+a:link { color:white; }
+a:visited { color:white; }
+
 .inputValueSlider{
     height: 4vh;
+    width: 24vh;;
     float: right;
     cursor: pointer;
 }
@@ -42,6 +47,8 @@ body {
 .block{
     border-radius: 10px;
     padding:20px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
 }
 .notion{
     font-size: 20px;
@@ -52,6 +59,7 @@ body {
     margin-top: 2px;
     display: block; 
 }
+
 .result{
     font-size: 3.2rem;
     padding: 5px;
@@ -61,58 +69,123 @@ body {
     margin: 7px;
     margin-bottom: 10vh;
     border-radius: 14px;
-    background-color: PaleTurquoise;
+    background-color: rgb(177, 248, 248);
+    position: relative;
+}.outerResultBox:before{
+    display: block;
+    content: " ";
+    left: 4px;
+    top: 4px;
+    bottom: 4px;
+    right: 4px;
+    position: absolute;
+    margin: auto;
+    border-radius: 14px;
+    border: 2.4px dashed rgb(67, 197, 230);
 }
+
 #tasteCodeBlock{
     padding: 20px;
     margin: 7px;
     border-radius: 14px;
     background-color: PaleTurquoise;
 }
-.soloButton{
-    background-color: white;
-    padding: 2vh 3vh;
-    margin-top: 5vh;
-    font-size: 5rem;
-    border-style: solid;
-    border-width: medium;
-    border-color: CadetBlue;
-    border-radius: 20px;
-    text-decoration: none;
+
+.soloBigButton{
+    color:white;
     cursor: pointer;
+    background-color: rgb(132, 203, 250);
+    position: relative;
+    padding: 2.5vh 7vh;
+    border:none;
+    font-size: 5rem;
+    border-radius: 5vh;
+    text-decoration: none;
+    box-shadow: 0 0.6vh rgb(76, 108, 196);
 }
+.soloBigButton:hover{
+    background-color: rgb(107, 193, 250);
+}
+.soloBigButton:before{
+    display: block;
+    content: " ";
+    left: 4px;
+    top: 4px;
+    bottom: 4px;
+    right: 4px;
+    position: absolute;
+    margin: auto;
+    border-radius: 5vh;
+    border: 2.4px dashed rgb(93, 145, 224);
+}
+
 .inputButton{
     cursor: pointer;
-    background-color: white;
-    padding: 10px 12px;
+    background-color: rgb(255, 213, 154);
+    padding: 0.8vh 1.8vh;
     font-size: 2.6rem;
-    border-color: BurlyWood;
-    border-radius: 20px;
+    border:none;
+    border-radius: 4.4vh;
     text-decoration: none;
-    width:14vh;
+    height: 6vh;
+    width: 16vh;
+    position: relative;
     margin: auto;
     margin-top: 1vh;
     margin-bottom: 1vh;
     display: block; 
+    box-shadow: 0 0.5vh rgb(221, 173, 109);
+}.inputButton:hover{
+    background-color: rgb(250, 205, 143);
+}.inputButton:before{
+    display: block;
+    content: " ";
+    left: 4px;
+    top: 4px;
+    bottom: 4px;
+    right: 4px;
+    position: absolute;
+    margin: auto;
+    border-radius: 5vh;
+    border: 2.4px dashed rgb(226, 178, 115);
 }
+
 .addRemoveButton{
     cursor: pointer;
-    background-color: white;
+    background-color: rgb(170, 252, 255);
     padding: 10px 12px;
     font-size: 2.0rem;
-    border-color: CadetBlue;
+    border:none;
     border-radius: 20px;
     text-decoration: none;
+    position: relative;
     margin-left: 1vh;
     margin-right: 1vh;
-    margin-bottom: 4vh;
-    margin-top: 2vh;
+    margin-bottom: 2.2vh;
+    margin-top: 1vh;
     display: inline-block; 
+    box-shadow: 0 0.35vh rgb(83, 175, 187);
+}.addRemoveButton:hover{
+    background-color: rgb(149, 240, 243);
+}.addRemoveButton:before{
+    display: block;
+    content: " ";
+    left: 3px;
+    top: 3px;
+    bottom: 3px;
+    right: 3px;
+    position: absolute;
+    margin: auto;
+    border-radius: 5vh;
+    border: 2px dashed rgb(110, 203, 226);
 }
+
+
 .tasteCodeInput{
     background-color: white;
     padding: 10px 12px;
     font-size: 2.2rem;
+    border: 2px dashed;
     border-color: Thistle;
     border-radius: 20px;
     width: 36vw;
@@ -120,32 +193,69 @@ body {
     margin-top: 2vh;
     margin-bottom: 2vh;
     display: block; 
+}.tasteCodeInput:focus {
+    outline: none;
+    border-style:solid;
 }
+
 .returnToMainButton{
     color:MidnightBlue;
     font-size: 2.8rem;
     padding: 1.5vh;
     padding-left: 3vh;
     padding-right: 3vh;
-    margin-top: 4vh;
+    position: relative;
     margin: auto;
+    margin-top: 5vh;
+    margin-bottom: 4vh;
     border-radius: 22px;
-    background-color: #FFD2D2;
+    background-color: #ff8f8f;
+    text-decoration: none;
+    box-shadow: 0 0.5vh #dd5454;
+}.returnToMainButton:hover{
+    background-color: #fa8484;
+}.returnToMainButton:before{
+    display: block;
+    content: " ";
+    left: 4px;
+    top: 4px;
+    bottom: 4px;
+    right: 4px;
+    position: absolute;
+    margin: auto;
+    border-radius: 5vh;
+    border: 2.4px dashed #f56767;
 }
 
-.seeMore{
+.seeMoreButton{
     cursor: pointer;
-    background-color: white;
+    color:white;
+    background-color: rgb(130, 152, 252);
     margin:auto;
     margin-top: 2vh;
     margin-bottom: 1vh;
     padding: 10px 12px;
     font-size: 1.8vh;
-    border-color: CornflowerBlue;
+    position: relative;
+    border:none;
     border-radius: 20px;
     text-decoration: none;
     width:14vh;
     display: block; 
+    box-shadow: 0 0.5vh rgb(89, 112, 216);
+}.seeMoreButton:hover{
+    background-color: rgb(112, 137, 245);
+}.seeMoreButton:before{
+    display: block;
+    content: " ";
+    left: 3px;
+    top: 3px;
+    bottom: 3px;
+    right: 3px;
+    position: absolute;
+    margin: auto;
+    border-radius: 5vh;
+    border: 2.2px dashed rgb(70, 95, 204);
 }
 
 @media only screen and (min-aspect-ratio:4/5) {
@@ -198,7 +308,7 @@ body {
     .result{ font-size:6vw;}
     h1 { font-size: 10vw; }
     h2 { font-size: 7vw; }
-    .soloButton{ font-size: 9vw; }
+    .soloBigButton{ font-size: 8.4vw; }
 }
 
 @media only screen and (max-aspect-ratio:10/26) {
