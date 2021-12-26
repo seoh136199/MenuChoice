@@ -41,7 +41,7 @@ a:visited { color:white; }
     padding-left: 3vh;
     padding-right: 3vh;
     margin: 1vh;
-    border-radius: 22px;
+    border-radius: 3.5vh;
     background-color: Bisque;
 }
 .block{
@@ -65,30 +65,112 @@ a:visited { color:white; }
     padding: 5px;
 }
 .outerResultBox{
-    padding: 20px;
+    padding: 5vh;
     margin: 7px;
     margin-bottom: 10vh;
-    border-radius: 14px;
+    border-radius: 4vh;
     background-color: rgb(177, 248, 248);
     position: relative;
 }.outerResultBox:before{
     display: block;
     content: " ";
-    left: 4px;
-    top: 4px;
-    bottom: 4px;
-    right: 4px;
+    left: 0.6vh;
+    right: 0.6vh;
+    top: 0.6vh;
+    bottom: 0.6vh;
     position: absolute;
     margin: auto;
-    border-radius: 14px;
+    border-radius: 4vh;
     border: 2.4px dashed rgb(67, 197, 230);
 }
 
 #tasteCodeBlock{
-    padding: 20px;
+    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     margin: 7px;
-    border-radius: 14px;
-    background-color: PaleTurquoise;
+    border: 2px dashed;
+    border-color: rgb(62, 168, 255);
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+}
+#tasteCode{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width:87%;
+    margin-top: 0.5vh;
+}
+#copyTasteCode{
+    cursor: pointer;
+    border:none;
+    background-color: rgb(150, 196, 235);
+    border-radius: 1vh;
+    width: 2.8vh;
+    height:2.8vh;
+    padding:0.6vh;
+    position: relative;
+    bottom: 0.6vh;
+}
+#copyTasteCodeIcon{
+    width: 1.6vh;
+    height:1.6vh;
+}
+#tasteCodeCopyNotice{
+    display:inline-block;
+    font-size: 1.7rem;
+    padding: 0.8vh;
+    border-radius: 3vh;
+    background-color: rgb(255, 207, 134);
+    position: relative ;
+    left:-5vh;
+    bottom:7vh;
+    opacity: 0.0;
+}
+
+@-webkit-keyframes fade {
+    0% { opacity: 0;} 
+    15% { opacity: 0.9;} 
+    20% { opacity: 1.0;} 
+    80% { opacity: 1.0;} 
+    85% { opacity: 0.9;} 
+    100% { opacity: 0;}
+}
+@-moz-keyframes fade {
+    0% { opacity: 0;} 
+    15% { opacity: 0.9;} 
+    20% { opacity: 1.0;} 
+    80% { opacity: 1.0;} 
+    85% { opacity: 0.9;} 
+    100% { opacity: 0;}
+}
+@-ms-keyframes fade {
+    0% { opacity: 0;} 
+    15% { opacity: 0.9;} 
+    20% { opacity: 1.0;} 
+    80% { opacity: 1.0;} 
+    85% { opacity: 0.9;} 
+    100% { opacity: 0;}
+}
+@-o-keyframes fade {
+    0% { opacity: 0;} 
+    15% { opacity: 0.9;} 
+    20% { opacity: 1.0;} 
+    80% { opacity: 1.0;} 
+    85% { opacity: 0.9;} 
+    100% { opacity: 0;}
+}
+@keyframes fade {
+    0% { opacity: 0;} 
+    15% { opacity: 0.9;} 
+    20% { opacity: 1.0;} 
+    80% { opacity: 1.0;} 
+    85% { opacity: 0.9;} 
+    100% { opacity: 0;}
+}
+
+.fade{
+    animation: fade 0.5s linear;
 }
 
 .soloBigButton{
@@ -109,10 +191,10 @@ a:visited { color:white; }
 .soloBigButton:before{
     display: block;
     content: " ";
-    left: 4px;
-    top: 4px;
-    bottom: 4px;
-    right: 4px;
+    left: 0.5vh;
+    right: 0.5vh;
+    top: 0.5vh;
+    bottom: 0.5vh;
     position: absolute;
     margin: auto;
     border-radius: 5vh;
@@ -122,13 +204,13 @@ a:visited { color:white; }
 .inputButton{
     cursor: pointer;
     background-color: rgb(255, 213, 154);
-    padding: 0.8vh 1.8vh;
+    padding: 1.5vh;
+    padding-left: 3.7vh;
+    padding-right: 3.7vh;
     font-size: 2.6rem;
     border:none;
-    border-radius: 4.4vh;
+    border-radius: 2.5vh;
     text-decoration: none;
-    height: 6vh;
-    width: 20vh;
     position: relative;
     margin: auto;
     margin-top: 1vh;
@@ -140,40 +222,41 @@ a:visited { color:white; }
 }.inputButton:before{
     display: block;
     content: " ";
-    left: 4px;
-    top: 4px;
-    bottom: 4px;
-    right: 4px;
+    left: 0.4vh;
+    right: 0.4vh;
+    top: 0.4vh;
+    bottom: 0.4vh;
     position: absolute;
     margin: auto;
-    border-radius: 5vh;
+    border-radius: 2.2vh;
     border: 2.4px dashed rgb(226, 178, 115);
 }
 
 .addRemoveButton{
     cursor: pointer;
     background-color: rgb(170, 252, 255);
-    padding: 10px 12px;
-    font-size: 2.0rem;
+    padding: 1.3vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    font-size: 1.8rem;
     border:none;
-    border-radius: 20px;
+    border-radius: 5vh;
     text-decoration: none;
     position: relative;
     margin-left: 1vh;
     margin-right: 1vh;
-    margin-bottom: 2.2vh;
+    margin-bottom: 1vh;
     margin-top: 1vh;
     display: inline-block; 
-    box-shadow: 0 0.35vh rgb(83, 175, 187);
 }.addRemoveButton:hover{
     background-color: rgb(149, 240, 243);
 }.addRemoveButton:before{
     display: block;
     content: " ";
-    left: 3px;
-    top: 3px;
-    bottom: 3px;
-    right: 3px;
+    left: 0.4vh;
+    right: 0.4vh;
+    top: 0.4vh;
+    bottom: 0.4vh;
     position: absolute;
     margin: auto;
     border-radius: 5vh;
@@ -185,10 +268,10 @@ a:visited { color:white; }
     background-color: white;
     padding: 10px 12px;
     font-size: 2.2rem;
+    width:36vw;
     border: 2px dashed;
     border-color: Thistle;
     border-radius: 20px;
-    width: 36vw;
     margin: auto;
     margin-top: 2vh;
     margin-bottom: 2vh;
@@ -202,13 +285,13 @@ a:visited { color:white; }
     color:MidnightBlue;
     font-size: 2.8rem;
     padding: 1.5vh;
-    padding-left: 3vh;
-    padding-right: 3vh;
+    padding-left: 4vh;
+    padding-right: 4vh;
     position: relative;
     margin: auto;
-    margin-top: 5vh;
+    margin-top: 6vh;
     margin-bottom: 4vh;
-    border-radius: 22px;
+    border-radius: 2.5vh;
     background-color: #ff8f8f;
     text-decoration: none;
     box-shadow: 0 0.5vh #dd5454;
@@ -217,13 +300,13 @@ a:visited { color:white; }
 }.returnToMainButton:before{
     display: block;
     content: " ";
-    left: 4px;
-    top: 4px;
-    bottom: 4px;
-    right: 4px;
+    left: 0.4vh;
+    right: 0.4vh;
+    top: 0.4vh;
+    bottom: 0.4vh;
     position: absolute;
     margin: auto;
-    border-radius: 5vh;
+    border-radius: 2.3vh;
     border: 2.4px dashed #f56767;
 }
 
@@ -234,13 +317,14 @@ a:visited { color:white; }
     margin:auto;
     margin-top: 2vh;
     margin-bottom: 1vh;
-    padding: 10px 12px;
+    padding: 1.3vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
     font-size: 1.8vh;
     position: relative;
     border:none;
-    border-radius: 20px;
+    border-radius: 5vh;;
     text-decoration: none;
-    width:14vh;
     display: block; 
     box-shadow: 0 0.5vh rgb(89, 112, 216);
 }.seeMoreButton:hover{
@@ -248,10 +332,10 @@ a:visited { color:white; }
 }.seeMoreButton:before{
     display: block;
     content: " ";
-    left: 3px;
-    top: 3px;
-    bottom: 3px;
-    right: 3px;
+    left: 0.4vh;
+    right: 0.4vh;
+    top: 0.4vh;
+    bottom: 0.4vh;
     position: absolute;
     margin: auto;
     border-radius: 5vh;
@@ -277,7 +361,7 @@ a:visited { color:white; }
     #innerGrid3{
         display: grid;
         font-size: 2.8rem;
-        grid-template-columns: 1fr 50vh 1fr;
+        grid-template-columns: 1fr 60vh 1fr;
     }
 }
 
@@ -299,7 +383,7 @@ a:visited { color:white; }
     }
     #innerGrid3{
         display: grid;
-        grid-template-columns: 1fr 6fr 1fr;
+        grid-template-columns: 1fr 7fr 1fr;
         font-size: 5vw;
     }
     .inputValueSlider{
@@ -309,6 +393,13 @@ a:visited { color:white; }
     h1 { font-size: 10vw; }
     h2 { font-size: 7vw; }
     .soloBigButton{ font-size: 8.4vw; }
+    .outerResultBox{ padding: 5vw; }
+    #tasteCode {width: 52vw; }
+    #copyTasteCode{
+        width: 5vw;
+        height: 5vw;
+        border-radius: 1.5vw;
+    }
 }
 
 @media only screen and (max-aspect-ratio:10/26) {

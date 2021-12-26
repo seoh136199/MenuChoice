@@ -175,8 +175,14 @@
 
                     <div id='innerGrid3'>
                     <div></div> <div id="tasteCodeBlock" style="text-align: center;">
-                        취향 코드: 
-                        <div id="tasteCode" style="word-break: break-all;">여기에 코드 표시</div>
+                        <div id="tasteCode" style="display:inline-block">여기에 코드 표시</div>
+                        <button id="copyTasteCode" style="display:inline-block"onclick=
+                        "copyTasteCodeToClipboard();
+                        ">
+                            <img id="copyTasteCodeIcon"src="./image/copy-button.png"></img>
+                            <div id="tasteCodeCopyNotice">복사되었습니다!</div>
+                        </button>
+                        
                     </div> <div></div>
                     </div>
                     

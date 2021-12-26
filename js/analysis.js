@@ -101,3 +101,14 @@ function addTasteCodeInput(){
         document.querySelector('#notion3').style.display = 'block';
     }
 }
+
+function copyTasteCodeToClipboard() {
+
+    var text = document.querySelector("#tasteCode").textContent;
+    navigator.clipboard.writeText(text);
+    
+    var button = document.querySelector('#tasteCodeCopyNotice');
+    button.classList.remove("fade");
+    button.offsetWidth = button.offsetWidth;
+    button.classList.add("fade");
+}

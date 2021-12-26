@@ -36,25 +36,27 @@
         <div id="scoreInput" class="block" style="display: block;";>
             <h2>나와 친구의 취향코드를 입력해주세요.</h2>
             
-            <input type='text' class='tasteCodeInput' style="display: block;">
-            <input type='text' class='tasteCodeInput' style="display: block;">
-            <input type='text' class='tasteCodeInput' style="display: none;">
-            <input type='text' class='tasteCodeInput' style="display: none;">
-            <input type='text' class='tasteCodeInput' style="display: none;">
-            <input type='text' class='tasteCodeInput' style="display: none;">
-            <input type='text' class='tasteCodeInput' style="display: none;">
-            <input type='text' class='tasteCodeInput' style="display: none;">
-
-            <script>printNotion3()</script>
-
             <div style="margin: auto; text-align: center;">
                 <button type='button' class='addRemoveButton' onclick="
                 addTasteCodeInput();">칸 하나 추가하기</button>
                 <button type='button' class='addRemoveButton' onclick="
                 delTasteCodeInput();">칸 하나 없애기</button>
             </div>
+            
+            <script>printNotion3()</script>
+
+            <input type='text' class='tasteCodeInput' style="display: block;">
+            <input type='text' class='tasteCodeInput' style="display: block;">
+            <input type='text' class='tasteCodeInput' style="display: none;">
+            <input type='text' class='tasteCodeInput' style="display: none;">
+            <input type='text' class='tasteCodeInput' style="display: none;">
+            <input type='text' class='tasteCodeInput' style="display: none;">
+            <input type='text' class='tasteCodeInput' style="display: none;">
+            <input type='text' class='tasteCodeInput' style="display: none;">
 
             <script>printNotion1()</script>
+            
+            <br>
 
             <button type='button' class='inputButton' onclick="
                 checkTasteCodeInput(tasteCodes, '#scoreInput', '#blockPreResult');">입력 완료</button>
