@@ -102,13 +102,37 @@ function addTasteCodeInput(){
     }
 }
 
+function isClipboardApplyBrowser(){ 
+	const agt = navigator.userAgent.toLowerCase(); 
+	if (agt.indexOf("edg") != -1) return 0;
+
+	if (agt.indexOf("chrome") != -1) return 1;
+	if (agt.indexOf("firefox") != -1) return 1; 
+	if (agt.indexOf("opera") != -1) return 1; 
+	if (agt.indexOf("samsung") != -1) return 1; 
+	else return 0;
+}
+
 function copyTasteCodeToClipboard() {
 
     var text = document.querySelector("#tasteCode").textContent;
     navigator.clipboard.writeText(text);
     
-    var button = document.querySelector('#tasteCodeCopyNotice');
-    button.classList.remove("fade");
-    button.offsetWidth = button.offsetWidth;
-    button.classList.add("fade");
+    if (isClipboardApplyBrowser() == 1){
+        var button = document.querySelector('#tasteCodeCopyNotice');
+        button.classList.remove("fade");
+        button.offsetWidth = button.offsetWidth;
+        button.classList.add("fade");
+    }
 }
+
+function removeCopyButton() {
+    if (isClipboardApplyBrowser() == 0){
+        document.querySelector('#tasteCode').style.width = "94%";
+        document.querySelector('#copyTasteCode').style.display = 'none';
+        if (matchMedia("screen and (max-aspect-ratio:4/5)").matches) {
+            document.querySelector('#tasteCode').style.width = "65vw";
+        }
+    }
+}
+

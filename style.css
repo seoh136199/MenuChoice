@@ -67,7 +67,7 @@ a:visited { color:white; }
 .outerResultBox{
     padding: 5vh;
     margin: 7px;
-    margin-bottom: 10vh;
+    margin-bottom: 5vh;
     border-radius: 4vh;
     background-color: rgb(177, 248, 248);
     position: relative;
@@ -108,13 +108,13 @@ a:visited { color:white; }
     border-radius: 1vh;
     width: 2.8vh;
     height:2.8vh;
-    padding:0.6vh;
+    padding:0.7vh;
     position: relative;
     bottom: 0.6vh;
 }
 #copyTasteCodeIcon{
-    width: 1.6vh;
-    height:1.6vh;
+    width: 1.4vh;
+    height:1.4vh;
 }
 #tasteCodeCopyNotice{
     display:inline-block;
@@ -342,6 +342,13 @@ a:visited { color:white; }
     border: 2.2px dashed rgb(70, 95, 204);
 }
 
+.shareButton{
+    padding: 0.4vh;
+}
+.shareButtonImage{
+    width: 8vh;
+}
+
 @media only screen and (min-aspect-ratio:4/5) {
     #portrait{
         display: none;
@@ -394,11 +401,22 @@ a:visited { color:white; }
     h2 { font-size: 7vw; }
     .soloBigButton{ font-size: 8.4vw; }
     .outerResultBox{ padding: 5vw; }
-    #tasteCode {width: 52vw; }
+    #tasteCode { width: 52vw; }
     #copyTasteCode{
         width: 5vw;
         height: 5vw;
         border-radius: 1.5vw;
+        padding: 1.1vw;
+    }
+    #copyTasteCodeIcon{
+        width: 2.8vw;
+        height: 2.8vw;
+    }
+    .shareButton{
+        padding: 0.4vw;
+    }
+    .shareButtonImage{
+        width: 12vw;
     }
 }
 

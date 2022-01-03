@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <script type="text/javascript" src="./js/data.js"></script>
     <script type='text/javascript' src='./js/analysis.js'></script>
+    <script type='text/javascript' src='./js/share.js'></script>
     
     <link rel="stylesheet" type="text/css" href="./style.css">
 
@@ -162,6 +163,7 @@
                         analysisResult();
                         resetResult();
                         makeTasteCode();
+                        removeCopyButton();
                         this.style.display = 'none';
                         document.querySelector('#blockResult').style.display = 'block';
                         document.querySelector('.returnToMainButton').style.display = 'inline-block';
@@ -250,8 +252,17 @@
 
                     </div> <div></div>
                     </div>
+                    
+                    <div style="width: 100%; text-align: center;"> 
+                        <a href="" class="shareButton" onclick="window.open(urlCombineFb, '', 'scrollbars=no, width=600, height=600'); return false;">
+                        <img class="shareButtonImage" src="./image/sns-icon-facebook.png" title="페이스북에 공유하기"></a> 
+                        
+                        <a href="" class="shareButton" onclick="makeContext(); window.open(urlCombineTw, '', 'scrollbars=no, width=600, height=600'); return false;">
+                        <img class="shareButtonImage" src="./image/sns-icon-twitter.png" title="트위터에 공유하기"></a>
+                    </div>
+
                 </div>
-                
+
                 <div style="text-align: center; margin-bottom: 10vh;">
                     <a class="returnToMainButton" href="index.html">메인으로 돌아가기</a>
                 </div>
