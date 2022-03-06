@@ -14,7 +14,7 @@ function makeContext() {
 
         myContext += "%0a"
         for (var i = 1; i <= 5; i++){
-            myContext += "%0a" + i + "위: " + menu[i-1][0] + " - " +  menu[i-1][1] + "%25";
+            myContext += "%0a" + i + "위: " + menu[rank[i-1]][0] + " - " +  menu[rank[i-1]][1].toFixed(1) + "%25";
         }
         myContext += "%0a%0a"
 
